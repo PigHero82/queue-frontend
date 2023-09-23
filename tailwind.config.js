@@ -6,6 +6,9 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    container: {
+      center: true
+    },
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -14,5 +17,24 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require("daisyui")
+  ],
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          primary: "#30bddcff",
+          secondary: "#6C757D",
+          accent: "#37cdbe",
+          neutral: "#3d4451",
+          "base-100": "#ffffff",
+        },
+        dark: {
+          "base-100": "#1e232a"
+        }
+      }
+    ]
+  }
 }
