@@ -72,7 +72,7 @@ export function FormSection() {
         <ErrorMessage errors={formState.errors} name="queue" render={({ message }) => <ErrorText>{message}</ErrorText>} />
       </div>
 
-      <Button type="submit" className="w-full" isloading={Boolean(formState.isSubmitting ? 1 : 0)}>Join</Button>
+      <Button type="submit" className="w-full" isloading={formState.isSubmitting ? true : undefined}>Join</Button>
     </form>
   )
 }
