@@ -29,10 +29,6 @@ const getToken = (): string => {
   return Cookies.get(jwtConfig.storageTokenKeyName) ?? ""
 }
 
-const currentUrl = (): string => {
-  return process.env.REACT_APP_BE_URL as string
-}
-
 // ** Request Interceptor
 const services = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BASE_URL_API
@@ -68,7 +64,7 @@ services.interceptors.response.use(
     if (response && response.status === 401) {
       Cookies.remove(jwtConfig.storageTokenKeyName)
       window.sessionStorage.setItem("redirect_path", window.location.pathname)
-      window.location.replace(`${currentUrl()}/login`)
+      window.location.replace("/login")
       // Jika memiliki refresh token
       // if (!isAlreadyFetchingAccessToken) {
       //   isAlreadyFetchingAccessToken = true
